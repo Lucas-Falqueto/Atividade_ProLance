@@ -13,6 +13,12 @@ module.exports = new EntitySchema({
         name: {
             type: "varchar",
         },
+        numero: {
+            type: "varchar",
+        },
+        sobre_mim: {
+            type: "varchar",
+        },
         email: {
             type: "varchar",
         },
