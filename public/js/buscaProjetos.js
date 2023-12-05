@@ -1,22 +1,23 @@
 const containerCard = document.querySelector('.container-card')
 
+
 function buscaEmprego() {
     fetch("/api/jobs", {
         method: "GET"
     }).then(res => res.json())
-        .then(data => {
+        .then(jobs => {
 
-            if (data.status == "false") {
+            if (jobs.status == "false") {
                 containerCard.innerText = "Não foi achar nenhum trabalho"
 
             } else {
                 containerCard.innerText = ""
 
-                for (const key in data) {
+                for (const key in jobs) {
 
-                    const element = data[key];
+                    const job = jobs[key];
 
-                    for (const key in element) {
+                    for (const key in job) {
                         const card = document.createElement('div');
                         const cardBody = document.createElement('div')
                         card.appendChild(cardBody)
@@ -29,9 +30,13 @@ function buscaEmprego() {
                         titulocard.className = 'card-title'
                         descricaocard.className = 'card-text'
                         containerCard.appendChild(card)
-                        const { titulo, descricao } = element[key];
+                        const { id, titulo, descricao } = job[key];
                         titulocard.innerText = titulo
                         descricaocard.innerText = descricao
+                        card.addEventListener("click", () => {
+                            var url = `/descricaoVaga&${id}`
+                            window.open(url, '_blank')
+                        })
 
                     }
 

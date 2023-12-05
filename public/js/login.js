@@ -1,9 +1,9 @@
+const alert = document.querySelector(".alert")
 const callApi = () => {
     const login = {
         email: email.value,
         password: password.value
     }
-    console.log("callAPI")
     fetch("/api/login", {
         method: "POST",
         body: JSON.stringify(login),
@@ -12,10 +12,11 @@ const callApi = () => {
         }
     }).then(res => res.json())
         .then(data => {
+            console.log(data)
             if (data.status == "error") {
-
-                alert(data.error)
-
+                alert.innerHTML = data.error
+                alert.style.display = "block"
+                setTimeout(() => alert.style.display = "none", 3000)
             } else {
 
                 window.location.reload()

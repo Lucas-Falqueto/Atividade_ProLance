@@ -1,10 +1,25 @@
 .container-card {
-    width: 100%;
-    padding: 50px;
+    position: absolute;
+    top: 87px;
     display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: flex-start;
+    padding: 15px;
 }
 
 .card {
     width: 18rem;
     margin-right: 5px;
+    max-height: 110px;
+    overflow: hidden;
+    text-overflow: ellipsis ;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.card h5, .card p{
+    overflow: hidden;
+    text-overflow: ellipsis ;
+    white-space: nowrap;
 }

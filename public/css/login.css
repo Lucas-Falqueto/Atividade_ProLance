@@ -35,3 +35,12 @@
     cursor: pointer;
     border: none;
 }
+
+.alert{
+    display: none;
+    position: fixed;
+    width: 100%;
+    text-align: center;
+    top: 88px;
+    transition: 1s ease-in;
+}

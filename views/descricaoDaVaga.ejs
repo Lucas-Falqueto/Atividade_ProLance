@@ -14,26 +14,21 @@
 <body>
     <div class="wrapper">
         <div class="container-nav">
-            <h1>ProLancer</h1>
+            <div class="logo-empresa">ProLancer</div>
+
             <nav class="nav">
-                <a href="/register">Cadastro</a>
-                <a href="/login">Login</a>
-                <a href="/contatos">Contato</a>
+                <a href="/publicaProjetos">Publicar Projetos</a>
+                <a href="#">Contato</a>
+                <a href="#">Perfil</a>
+                <a href="/logout">Sair</a>
             </nav>
         </div>
-
-        <div class="container-conteudo">
-            <div class="container-left-home">
-                <h1>Encontre trabalho fácil</h1>
-                <p>Projeto ProLancer é para aqueles que precisam de uma graninha extra.</p>
-                <button>Saiba mais</button>
-            </div>
-            <div class="container-right-home">
-                <div class="img-home">
-                    <img src="img/handshake.png" alt="passando aperto">
-                </div>
-            </div>
+        <div>
+            <h2>Título: <%= job.titulo %></h2>
+            <p>Descrição: <%= job.descricao %></p>
+            <p>Data de Publicação: <%= job.data_publicacao %></p>
         </div>
+        
 
     </div>
 

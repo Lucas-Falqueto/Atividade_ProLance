@@ -35,3 +35,12 @@ textarea {
     border-radius: 2px;
     cursor: pointer;
 }
+
+.alert{
+    display: none;
+    position: fixed;
+    width: 100%;
+    text-align: center;
+    top: 88px;
+    transition: 1s ease-in;
+}
