@@ -24,12 +24,22 @@ router.get('/login', loggedIn, (req, res) => {
 router.get('/lancaprojetos', loggedIn, async (req, res) => {
     if (await req.user) { res.render('lancaprojetos', { status: "loggedIn", user: req.user }) } else { res.redirect("/login") }
 })
+
 router.get('/logout', logout)
+
+router.get('/perfil', loggedIn, async (req, res) => {
+    if (!req.user) res.sendFile('login.html', { root: './public/' })
+    res.sendFile('perfil.html', { root: './public/' })
+})
+
+router.get('/contatos', (req, res) => {
+    res.sendFile('contatos.html', { root: './public/' })
+})
+
 
 router.get('/publicaProjetos', loggedIn, (req, res) => {
     if (!req.user) res.sendFile('login.html', { root: './public/' })
     res.sendFile('publicProject.html', { root: './public/' })
-
 })
 
 async function buscaEmprego(id) {

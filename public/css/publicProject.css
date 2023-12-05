@@ -11,6 +11,9 @@
     width: 500px;
 }
 
+.linha-form{
+    margin-bottom: 20px;
+}
 
 .form-job form input,
 textarea {
@@ -25,14 +28,14 @@ textarea {
     height: 100px
 }
 
+
 .form-job button {
     height: 50px;
-    width: 100px;
+    width: 150px;
     outline: none;
-    border: none;
-    background-color: rgb(92, 219, 92);
-    padding: 5px;
-    border-radius: 2px;
+    background-color: #5ce1e6;
+    border-radius: 30px;
+    padding: 10px;
     cursor: pointer;
 }
 

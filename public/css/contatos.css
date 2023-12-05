@@ -1,0 +1,64 @@
+.container-conteudo .container-left-contato{
+    width: 45%;
+}
+
+.img-contato{
+    width: 700px;
+    height: 950px;
+    float: left;
+}
+
+
+.container-conteudo .container-left-contato p{   
+    font-size: 30px;
+    margin-top: 50px;
+    line-height: 50px;
+    margin-bottom: 25px;
+
+}
+
+.container-conteudo .container-left-contato .form-contato h1 {   
+    margin-top: 200px;
+    font-size: 100px;
+}
+
+.icon{
+    margin-top: 150px;
+    width: 60px;
+    height: 60px;
+    float: right;
+}
+
+.icon2{
+    margin-top: 150px;
+    width: 60px;
+    height: 60px;
+    float: right;
+    margin-right: 20px;
+}
+
+.icon3{
+    margin-top: 150px;
+    width: 60px;
+    height: 60px;
+    float: right;
+    margin-right: 20px;
+}
+
+
+body{
+    padding-bottom: 0px;
+    overflow-y:hidden;
+    overflow-x:hidden;
+}
+
+
+
+
+
+
+
+
+
+
+
