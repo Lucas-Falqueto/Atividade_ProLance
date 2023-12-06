@@ -5,16 +5,17 @@ const { default: axios } = require('axios')
 
 
 const router = express.Router()
-router.get('/', (req, res) => {
-    res.render('index')
+router.get('/', loggedIn, async (req, res) => {
+    const user = await req.user
+    res.render('index', { status: "loggedIn", user: user })
 })
 
 router.get('/register', (req, res) => {
     res.sendFile('register.html', { root: './public/' })
 })
 
-router.get('/login', loggedIn, (req, res) => {
-    if (!req.user) {
+router.get('/login', loggedIn, async (req, res) => {
+    if (!await req.user) {
         res.sendFile('login.html', { root: './public/' })
     } else if (req.user) {
         res.redirect("/lancaprojetos")
@@ -28,8 +29,10 @@ router.get('/lancaprojetos', loggedIn, async (req, res) => {
 router.get('/logout', logout)
 
 router.get('/perfil', loggedIn, async (req, res) => {
-    if (!req.user) res.sendFile('login.html', { root: './public/' })
-    res.sendFile('perfil.html', { root: './public/' })
+    if (!await req.user) res.sendFile('login.html', { root: './public/' })
+    const user = await req.user
+    res.render('perfil', { status: "loggedIn", user: user })
+
 })
 
 router.get('/contatos', (req, res) => {
@@ -37,8 +40,8 @@ router.get('/contatos', (req, res) => {
 })
 
 
-router.get('/publicaProjetos', loggedIn, (req, res) => {
-    if (!req.user) res.sendFile('login.html', { root: './public/' })
+router.get('/publicaProjetos', loggedIn, async (req, res) => {
+    if (!await req.user) res.sendFile('login.html', { root: './public/' })
     res.sendFile('publicProject.html', { root: './public/' })
 })
 
@@ -47,7 +50,7 @@ async function buscaEmprego(id) {
     return response.data
 }
 router.get('/descricaoVaga&:id', loggedIn, async (req, res) => {
-    if (!req.user) res.sendFile('login.html', { root: './public/' })
+    if (!await req.user) res.sendFile('login.html', { root: './public/' })
 
     const job = await buscaEmprego(req.params.id)
     for (const jobItem of job.job) {

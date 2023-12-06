@@ -11,15 +11,40 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <link rel="stylesheet" type="text/css" href="css/perfil.css">
     </head>
     <body>
         <div class="wrapper">
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                    <div class="alert alert-primary" role="alert"></div>
+                  <span class="close" id="closeModalBtn">&times;</span>
+                  <h2>Edite seus dados</h2>
+                  <div class="mb-3">
+                    <label for="nome" class="form-label">Nome</label>
+                    <input type="text" class="form-control" id="nome" placeholder="<%= user.name %>">
+                  </div>
+                  <div class="mb-3">
+                    <label for="numero" class="form-label">Numero</label>
+                    <input type="text" class="form-control" id="numero" placeholder="<%= user.numero %>">
+                  </div>
+                  <div class="mb-3">
+                    <label for="sobre_mim" class="form-label">Sobre Mim</label>
+                    <textarea class="form-control" id="sobre_mim" placeholder="<%= user.sobre_mim %>" maxlength="150" ></textarea>
+                  </div>
+                  <button type="button" id="editar" data-id="<%= user.id %>" class="btn btn-primary">Editar</button>
+
+                </div>
+              </div>
             <div class="container-nav">
-                <h1>ProLancer</h1>
+                <h1><a href="/">ProLancer</a></h1>
+
                 <nav class="nav">
-                    <a href="/lancaprojetos">Home</a>
+                    <a href="/">Home</a>
+                    <a href="/lancaprojetos">Lista de Projetos</a>
                     <a href="/contatos">Contatos</a>
                 </nav>
             </div>
@@ -34,35 +59,36 @@
 
                 <div class="container-center-perfil">
                     <div class="form-detalhes">
-                        <h1>Mateus Sousa Basilio</h1>
-                        <br>
-                        <h3>Email:</h3><p>*****@****.***</p>
-                        <br>
-                        <h3>N°:</h3><p>27 40028922</p>
+                        <h1> <%= user.name %></h1>
+                        <h3>Email:</h3><p><%= user.email %></p>
+                        <h3>N°:</h3>
+                        <article><%= user.numero %></article>
                     </div>
 
                     
                     <div class="form-sobre-mim">
                         <h2>Sobre mim:</h2>
-                        <p>Sou um programador altamente qualificado com experiência em uma ampla gama de linguagens de programação, frameworks e tecnologias. Tenho um profundo conhecimento em desenvolvimento de software, desde a concepção e design até a implementação e manutenção de sistemas complexos. Minha paixão pelo código e resolução de problemas me motiva a criar soluções eficazes e eficientes para uma variedade de desafios.</p>
+                        <article><%= user.sobre_mim %></article>
+                        <button type="button" class="btn btn-primary" id="openModalBtn">editar</button>
                     </div>
+
                 </div>
                
                     <div class="container-left-perfil">
                         <h3>Conquitas:</h3>
                         <div class="card">
-                            <div class="img-box"> 
-                                <img class="cq1" src="img/conq/cqt1.png" alt="">
-                            </div>
+                            
+                                <img class="imgConquista" src="img/conq/cqt1.png" alt="">
+                            
                             <div class="content"> 
                                 
                                 <p>Primeiro emprego</p>
                             </div>
                         </div>
                         <div class="card">
-                            <div class="img-box"> 
-                                <img class="cq2" src="img/conq/cqt2.png" alt="">
-                            </div>
+                            
+                                <img class="imgConquista" src="img/conq/cqt2.png" alt="">
+                            
                             <div class="content"> 
                                 
                                 <p>Busque um emprego</p>
@@ -70,9 +96,9 @@
                         </div>
 
                         <div class="card">
-                            <div class="img-box"> 
-                                <img class="cq3" src="img/conq/cqt3.png" alt="">
-                            </div>
+                            
+                                <img class="imgConquista" src="img/conq/cqt3.png" alt="">
+                           
                             <div class="content"> 
                                 
                                 <p>Publique um trabalho</p>
@@ -80,9 +106,9 @@
                         </div>
 
                         <div class="card">
-                            <div class="img-box"> 
-                                <img class="cq4" src="img/conq/cqt4.png" alt="">
-                            </div>
+                            
+                                <img class="imgConquista" src="img/conq/cqt4.png" alt="">
+                            
                             <div class="content"> 
                                 
                                 <p>Seja contratado</p>
@@ -90,9 +116,9 @@
                         </div>
 
                         <div class="card">
-                            <div class="img-box"> 
-                                <img class="cq5" src="img/conq/cqt5.png" alt="">
-                            </div>
+                            
+                                <img class="imgConquista" src="img/conq/cqt5.png" alt="">
+                         
                             <div class="content"> 
                                 
                                 <p>Conclua trabalho</p>
@@ -102,5 +128,6 @@
             </div>
 
         </div>  
+        <script src="js/perfil.js"></script>
     </body>
 </html>

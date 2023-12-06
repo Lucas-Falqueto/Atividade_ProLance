@@ -1,58 +1,60 @@
-.wrapper{
-    display: flex;
-    position: absolute;
+*{
+    padding-bottom: 0;
 }
+
 .container-conteudo{
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
+    height: calc(100vh - 87px);
 }
-/* 
-img{
-    margin: 100px 25px;
-    width: 300px;
-    height: 300px;
-    float: left;
-} */
-
-/* .img0{
-    margin: 104px 2px;
-} */
 
 
 
 .container-left-perfil{
     flex-direction: column;
     margin-left: 5px;
-    background-color: #cccccc;
+    background-color: #FFF;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     padding: 30px;
     width: auto;
-    height: 480px;
+    height: 477px;
     display:flex;
+    justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
     border-radius: 4px;    
 }
 
 
 .container-center-perfil{
     display: flex;
+    height: 477px;
     flex-direction: column;
     gap: 5px;
 }
 .container-center-perfil > .form-sobre-mim{
-    background-color: #cccccc;
+    background-color: #FFF;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     padding: 30px;
     width: 460px;
-    height: auto;
+    height: inherit;
     text-align: justify;
     border-radius: 4px;
+    position: relative;
+    line-break: anywhere;
+}
+
+.form-sobre-mim > button{
+    position: absolute;
+    bottom: 20px;
 }
 
 .container-center-perfil > .form-detalhes {
-    background-color: #cccccc;
+    background-color: #FFF;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     padding: 30px;
+    min-height: 220px;
     width: auto;
     display: flex;
     justify-content: center;
@@ -60,6 +62,23 @@ img{
     flex-direction: column;
     border-radius: 4px;
 
+}
+
+.form-detalhes > h1{
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.form-detalhes > h3{
+    font-size: 20px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.form-detalhes > p{
+    margin: 0;
+    font-size: 15px;
+    
 }
 
 h3{
@@ -70,7 +89,9 @@ h2{
     padding-bottom: 5px;
 }
 
-
+article{
+    line-break: anywhere;
+}
 
 
 .card{
@@ -89,34 +110,28 @@ h2{
   left: 100px;
   width: 250px;
   display: flex;
-  /* text-align: center; */
-  /* align-items: center; */
   line-height: 50px;
   line-break: none;
-  
+  cursor: pointer;
 }
 
 .card > .content {
     display: flex;
     flex-direction: column;
     position: relative;
-    left: 900px;
     width: 100%;
     padding: 0px 30px;
-    /* text-align:center; */
+    text-align:center;
     height: 100px;
     overflow: hidden;
     transition: 0.5ms;
     bottom: 1px;
 }
 
-.card:hover .content{
-    left: 15px;
-    height: 55px;
-    /* width: 100%; */
-    /* text-align: center; */
-    /* line-break: none; */
-    transition: 0.1ms;
+.card:hover > .content{
+    bottom:55px;
+    text-align: center;
+    overflow: visible;
 }
 
 p{
@@ -124,7 +139,7 @@ p{
 }
 
 
-.cq1{
+.imgConquista{
     width: 40px;
     height: 40px;
     display: flex;
@@ -132,54 +147,12 @@ p{
     margin: 5px 2px 10px ;
     align-items: center;
 }
-
-.cq2{
-    width: 30px;
-    height: 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 5px 0px 0px 10px;
-}
-.cq3{
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    margin: 5px 0px 0px 5px;
-}
-.cq4{
-    width: 30px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    margin: 10px 2px 10px 10px;
-}
-.cq5{ .img2{
+ .img2{
     margin: 0px 1px;
     width: 20px;
     height: 25px; 
     align-items: end;
 } 
-    width: 40px;
-    height: 39px;
-    display: flex;
-    align-items: right;
-    flex-direction: column;
-    margin: 5px 2px 5px 5px;
-}
-
-
-
-input[type='file']{
-    display: none;
-    margin: 100px 25px;
-    width: 300px;
-    height: 300px;
-    cursor: pointer;
-}
 
 #imgA {
     margin: 100px 25px;
@@ -200,8 +173,41 @@ input[type='file']{
 }
 
 
-body{
-    padding-bottom: 0px;
-    overflow-y:hidden;
-    overflow-x:hidden;
-}
+/* Estilos para o modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.7);
+  }
+  
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+  }
+  
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .alert{
+    display: none;
+  }

@@ -8,7 +8,7 @@ function buscaEmprego() {
         .then(jobs => {
 
             if (jobs.status == "false") {
-                containerCard.innerText = "Não foi achar nenhum trabalho"
+                containerCard.innerText = "Não foi possivel achar nenhum trabalho"
 
             } else {
                 containerCard.innerText = ""

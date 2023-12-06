@@ -11,6 +11,7 @@ const register = async (req, res) => {
             const userSaved = {
                 nome: user.nome,
                 email: user.email,
+                numero: user.numero,
                 senha: await bcrypt.hash(user.password, 8)
             }
             new UserController().save(userSaved)

@@ -2,8 +2,8 @@ const db = require('../data-source')
 const userModel = require('../models/UserModel')
 const UserEntity = require('../entity/User')
 module.exports = class UserController {
-    async save({ nome, email, senha }) {
-        const user = new userModel(nome, email, senha);
+    async save({ nome, email, numero, senha }) {
+        const user = new userModel(nome, email, numero, senha);
         const userTable = db.getRepository(UserEntity)
         return await userTable.save(user);
     }
@@ -35,4 +35,25 @@ module.exports = class UserController {
             return false
         }
     }
+
+    async putUserInfo(id, user) {
+        try {
+            const newUser = await db.manager.createQueryBuilder()
+                .update(UserEntity)
+                .set({
+                    name: user.nome,
+                    numero: user.numero,
+                    sobre_mim: user.sobre_mim,
+                })
+                .where("id = :id", { id: id })
+                .execute();
+
+            return newUser;
+        } catch (error) {
+            throw error;
+        }
+    }
+
+
+
 }

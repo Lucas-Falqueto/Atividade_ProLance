@@ -1,19 +1,42 @@
-body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-}
-
 .container {
-    text-align: center;
+    width: 100%;
+    height: calc(100vh - 87px);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
-button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
+.dados{
+    margin-top: 49px;
+    max-height: 600px;
+    width: 800px;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    /* align-items: center; */
+    flex-direction: column;
+}
+
+.dados > h2{
+    text-align: center;
+    margin-top: 10px;
+    font-size: 35px;
+    line-break: anywhere;
+}
+
+.dados > p{
+    margin-top: 10px;
+    font-size: 20px;
+    line-break: anywhere;
+}
+
+.dados > button{
+   width: 150px;
+}
+
+.alert{
+    display: none; 
+    width: 100vw;
 }
